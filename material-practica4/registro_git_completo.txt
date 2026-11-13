@@ -1,0 +1,536 @@
+PRÁCTICA 4 — registro local demostrativo
+Se ha creado un repositorio Git nuevo a partir del ZIP de Práctica 3, no se ha clonado el GitHub real.
+
+$ git init -b main
+Initialized empty Git repository in /mnt/data/_p4work/Practica3_RTVRPTW/.git/
+
+
+$ git config user.name Práctica 4 — demostración local
+
+
+$ git config user.email practica4-demo@localhost
+
+
+$ git add .
+
+
+$ git commit -m Base: proyecto RTVRPTW tras la Práctica 3
+[main (root-commit) 028e8b5] Base: proyecto RTVRPTW tras la Práctica 3
+ 73 files changed, 7336 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 Doxyfile
+ create mode 100644 Instances/TOPTW/c101.txt
+ create mode 100644 Instances/TOPTW/c101Recortada.txt
+ create mode 100644 Instances/TOPTW/c102.txt
+ create mode 100644 Instances/TOPTW/c103.txt
+ create mode 100644 Instances/TOPTW/c104.txt
+ create mode 100644 Instances/TOPTW/c105.txt
+ create mode 100644 Instances/TOPTW/c106.txt
+ create mode 100644 Instances/TOPTW/c107.txt
+ create mode 100644 Instances/TOPTW/c108.txt
+ create mode 100644 Instances/TOPTW/c109.txt
+ create mode 100644 Instances/TOPTW/formatInstances.txt
+ create mode 100644 Instances/TOPTW/pr01.txt
+ create mode 100644 Instances/TOPTW/pr02.txt
+ create mode 100644 Instances/TOPTW/pr03.txt
+ create mode 100644 Instances/TOPTW/pr04.txt
+ create mode 100644 Instances/TOPTW/pr05.txt
+ create mode 100644 Instances/TOPTW/pr06.txt
+ create mode 100644 Instances/TOPTW/pr07.txt
+ create mode 100644 Instances/TOPTW/pr08.txt
+ create mode 100644 Instances/TOPTW/pr09.txt
+ create mode 100644 Instances/TOPTW/pr10.txt
+ create mode 100644 Instances/TOPTW/r101.txt
+ create mode 100644 Instances/TOPTW/r102.txt
+ create mode 100644 Instances/TOPTW/r103.txt
+ create mode 100644 Instances/TOPTW/r104.txt
+ create mode 100644 Instances/TOPTW/r105.txt
+ create mode 100644 Instances/TOPTW/r106.txt
+ create mode 100644 Instances/TOPTW/r107.txt
+ create mode 100644 Instances/TOPTW/r108.txt
+ create mode 100644 Instances/TOPTW/r109.txt
+ create mode 100644 Instances/TOPTW/r110.txt
+ create mode 100644 Instances/TOPTW/r111.txt
+ create mode 100644 Instances/TOPTW/r112.txt
+ create mode 100644 Instances/TOPTW/rc101.txt
+ create mode 100644 Instances/TOPTW/rc102.txt
+ create mode 100644 Instances/TOPTW/rc103.txt
+ create mode 100644 Instances/TOPTW/rc104.txt
+ create mode 100644 Instances/TOPTW/rc105.txt
+ create mode 100644 Instances/TOPTW/rc106.txt
+ create mode 100644 Instances/TOPTW/rc107.txt
+ create mode 100644 Instances/TOPTW/rc108.txt
+ create mode 100644 README.md
+ create mode 100644 docs/arquitectura.md
+ create mode 100644 docs/calidad.md
+ create mode 100644 docs/decisiones.md
+ create mode 100644 docs/evidencias/sonarqube-resultados.png
+ create mode 100644 docs/guia-uso.md
+ create mode 100644 docs/index.md
+ create mode 100644 documentacion-tecnica.md
+ create mode 100644 documentacion-tecnica.pdf
+ create mode 100644 evidencias/sonarqube-resultados.png
+ create mode 100644 informe-tecnico.md
+ create mode 100644 informe-tecnico.pdf
+ create mode 100644 mkdocs.yml
+ create mode 100644 pom.xml
+ create mode 100644 requirements-docs.txt
+ create mode 100644 src/main/java/es/ull/esit/utilities/BellmanFord.java
+ create mode 100644 src/main/java/es/ull/esit/utilities/ExpositoUtilities.java
+ create mode 100644 src/main/java/es/ull/esit/utilities/PowerSet.java
+ create mode 100644 src/main/java/es/ull/esit/utils/Pair.java
+ create mode 100644 src/main/java/top/TOPTW.java
+ create mode 100644 src/main/java/top/TOPTWEvaluator.java
+ create mode 100644 src/main/java/top/TOPTWGRASP.java
+ create mode 100644 src/main/java/top/TOPTWReader.java
+ create mode 100644 src/main/java/top/TOPTWRoute.java
+ create mode 100644 src/main/java/top/TOPTWSolution.java
+ create mode 100644 src/main/java/top/mainTOPTW.java
+ create mode 100644 src/test/java/es/ull/esit/utilities/ExpositoUtilitiesTest.java
+ create mode 100644 src/test/java/es/ull/esit/utilities/PowerSetTest.java
+ create mode 100644 src/test/java/top/TOPTWEvaluatorTest.java
+ create mode 100644 src/test/java/top/TOPTWReaderTest.java
+
+
+$ git switch -c feature/nueva-funcionalidad
+Switched to a new branch 'feature/nueva-funcionalidad'
+
+
+$ git add src/main/java/top/mainTOPTW.java src/main/java/top/TOPTWInstanceSummary.java src/test/java/top/TOPTWInstanceSummaryTest.java
+
+
+$ git commit -m Feat: mostrar resumen de instancia sin ejecutar GRASP
+[feature/nueva-funcionalidad a91198a] Feat: mostrar resumen de instancia sin ejecutar GRASP
+ 3 files changed, 46 insertions(+)
+ create mode 100644 src/main/java/top/TOPTWInstanceSummary.java
+ create mode 100644 src/test/java/top/TOPTWInstanceSummaryTest.java
+
+
+$ git diff main...feature/nueva-funcionalidad
+diff --git a/src/main/java/top/TOPTWInstanceSummary.java b/src/main/java/top/TOPTWInstanceSummary.java
+new file mode 100644
+index 0000000..58ed336
+--- /dev/null
++++ b/src/main/java/top/TOPTWInstanceSummary.java
+@@ -0,0 +1,21 @@
++package top;
++
++import java.util.Locale;
++
++/** \brief Resumen textual de una instancia TOPTW sin ejecutar GRASP. */
++public final class TOPTWInstanceSummary {
++    private TOPTWInstanceSummary() {
++        // Clase de utilidad.
++    }
++
++    /** \brief Devuelve puntos de interés, vehículos, horizonte y puntuación disponible. */
++    public static String summarize(TOPTW problem) {
++        double totalScore = 0.0;
++        for (int i = 1; i <= problem.getPOIs(); i++) {
++            totalScore += problem.getScore(i);
++        }
++        return String.format(Locale.ROOT,
++                "Puntos de interés: %d%nVehículos: %d%nTiempo máximo por ruta: %.1f%nPuntuación disponible: %.1f%n",
++                problem.getPOIs(), problem.getVehicles(), problem.getMaxTimePerRoute(), totalScore);
++    }
++}
+diff --git a/src/main/java/top/mainTOPTW.java b/src/main/java/top/mainTOPTW.java
+index 2a38280..0417f50 100644
+--- a/src/main/java/top/mainTOPTW.java
++++ b/src/main/java/top/mainTOPTW.java
+@@ -11,6 +11,14 @@ public class mainTOPTW {
+      * \brief Inicia el algoritmo para una instancia concreta o para todas las originales.
+      */
+     public static void main(String[] args) {
++        if (args.length > 0 && "--resumen".equals(args[0])) {
++            if (args.length != 2) {
++                throw new IllegalArgumentException("Uso: --resumen nombre-instancia.txt");
++            }
++            TOPTW problem = TOPTWReader.readProblem("Instances/TOPTW/" + args[1]);
++            System.out.print(TOPTWInstanceSummary.summarize(problem));
++            return;
++        }
+         if (args.length > 0) {
+             String instance = args[0];
+             int iterations = args.length > 1 ? Integer.parseInt(args[1]) : 5;
+diff --git a/src/test/java/top/TOPTWInstanceSummaryTest.java b/src/test/java/top/TOPTWInstanceSummaryTest.java
+new file mode 100644
+index 0000000..65704df
+--- /dev/null
++++ b/src/test/java/top/TOPTWInstanceSummaryTest.java
+@@ -0,0 +1,17 @@
++package top;
++
++import static org.junit.jupiter.api.Assertions.*;
++import org.junit.jupiter.api.Test;
++
++/** Prueba de la funcionalidad informativa de la práctica 4. */
++class TOPTWInstanceSummaryTest {
++    @Test
++    void resumeInstanciaSinEjecutarBusqueda() {
++        TOPTW problem = TOPTWReader.readProblem("Instances/TOPTW/c101Recortada.txt");
++        String result = TOPTWInstanceSummary.summarize(problem);
++        assertTrue(result.contains("Puntos de interés: 20"));
++        assertTrue(result.contains("Vehículos: 3"));
++        assertTrue(result.contains("Tiempo máximo por ruta: 1236.0"));
++        assertTrue(result.contains("Puntuación disponible:"));
++    }
++}
+
+
+$ git switch main
+Switched to branch 'main'
+
+
+$ git switch -c hotfix/correccion-sonarqube
+Switched to a new branch 'hotfix/correccion-sonarqube'
+
+
+$ git add src/main/java/top/TOPTWReader.java src/test/java/top/TOPTWReaderTest.java
+
+
+$ git commit -m Fix: validar ficheros TOPTW incompletos o mal formados
+[hotfix/correccion-sonarqube 8640099] Fix: validar ficheros TOPTW incompletos o mal formados
+ 2 files changed, 70 insertions(+), 26 deletions(-)
+
+
+$ git diff main...hotfix/correccion-sonarqube
+diff --git a/src/main/java/top/TOPTWReader.java b/src/main/java/top/TOPTWReader.java
+index f5324ad..b8992fe 100644
+--- a/src/main/java/top/TOPTWReader.java
++++ b/src/main/java/top/TOPTWReader.java
+@@ -1,56 +1,74 @@
+ package top;
+ 
+ import java.io.BufferedReader;
+-import java.io.File;
+-import java.io.FileReader;
+-import java.io.UncheckedIOException;
+ import java.io.IOException;
++import java.io.UncheckedIOException;
++import java.nio.file.Files;
++import java.nio.file.Path;
+ 
+ import es.ull.esit.utilities.ExpositoUtilities;
+ 
+ /**
+  * \brief Lector de instancias TOPTW.
+  *
+- * Interpreta el formato de los archivos de Instances/TOPTW y construye la matriz de distancias.
++ * Comprueba el formato básico de entrada y muestra errores útiles si faltan líneas.
+  */
+ public class TOPTWReader {
+-    
++
+     /**
+-     * \brief Lee y valida la apertura de un archivo de instancia TOPTW.
++     * \brief Construye un problema TOPTW a partir de un archivo.
++     * @param filePath ruta de la instancia
++     * @return problema cargado con matriz de distancias
+      */
+     public static TOPTW readProblem(String filePath) {
+-        TOPTW problem;
+-        try (BufferedReader reader = new BufferedReader(new FileReader(new File(filePath)))) {
+-            String line = reader.readLine();
+-            line = ExpositoUtilities.simplifyString(line);
+-            String[] parts =line.split(" ");
+-            problem = new TOPTW(Integer.parseInt(parts[2]), Integer.parseInt(parts[1]));
+-            line = reader.readLine();
+-            line = null; parts = null;
+-            for (int i = 0; i < problem.getPOIs()+1; i++) {
+-                line = reader.readLine();
+-                line = ExpositoUtilities.simplifyString(line);
+-                parts = line.split(" ");
++        try (BufferedReader reader = Files.newBufferedReader(Path.of(filePath))) {
++            String[] header = splitRequiredLine(reader, "cabecera");
++            if (header.length < 3) {
++                throw new IllegalArgumentException("Cabecera TOPTW incompleta: " + filePath);
++            }
++            int points = Integer.parseInt(header[2]);
++            int vehicles = Integer.parseInt(header[1]);
++            if (points < 0 || vehicles <= 0) {
++                throw new IllegalArgumentException("Número de puntos o vehículos inválido: " + filePath);
++            }
++            TOPTW problem = new TOPTW(points, vehicles);
++            readRequiredLine(reader, "parámetros generales");
++            for (int i = 0; i <= problem.getPOIs(); i++) {
++                String[] parts = splitRequiredLine(reader, "nodo " + i);
++                int requiredColumns = i == 0 ? 9 : 10;
++                if (parts.length < requiredColumns) {
++                    throw new IllegalArgumentException("Faltan columnas en el nodo " + i + ": " + filePath);
++                }
+                 problem.setX(i, Double.parseDouble(parts[1]));
+                 problem.setY(i, Double.parseDouble(parts[2]));
+                 problem.setServiceTime(i, Double.parseDouble(parts[3]));
+                 problem.setScore(i, Double.parseDouble(parts[4]));
+-                if(i==0) {
++                if (i == 0) {
+                     problem.setReadyTime(i, Double.parseDouble(parts[7]));
+                     problem.setDueTime(i, Double.parseDouble(parts[8]));
+-                }
+-                else {
++                } else {
+                     problem.setReadyTime(i, Double.parseDouble(parts[8]));
+-                    problem.setDueTime(i, Double.parseDouble(parts[9]));                    
++                    problem.setDueTime(i, Double.parseDouble(parts[9]));
+                 }
+-                line = null; parts = null;
+             }
+             problem.calculateDistanceMatrix();
++            problem.setMaxTimePerRoute(problem.getDueTime(0));
++            return problem;
+         } catch (IOException e) {
+             throw new UncheckedIOException("No se pudo leer la instancia: " + filePath, e);
+         }
+-        problem.setMaxTimePerRoute(problem.getDueTime(0));
+-        return problem;
+     }
+-    
++
++    private static String readRequiredLine(BufferedReader reader, String description) throws IOException {
++        String line = reader.readLine();
++        if (line == null) {
++            throw new IOException("Instancia incompleta: falta " + description);
++        }
++        return line;
++    }
++
++    private static String[] splitRequiredLine(BufferedReader reader, String description) throws IOException {
++        String line = ExpositoUtilities.simplifyString(readRequiredLine(reader, description));
++        return line.split(" ");
++    }
+ }
+diff --git a/src/test/java/top/TOPTWReaderTest.java b/src/test/java/top/TOPTWReaderTest.java
+index 35d9070..74132a7 100644
+--- a/src/test/java/top/TOPTWReaderTest.java
++++ b/src/test/java/top/TOPTWReaderTest.java
+@@ -22,4 +22,30 @@ class TOPTWReaderTest {
+         assertThrows(UncheckedIOException.class,
+                 () -> TOPTWReader.readProblem("Instances/TOPTW/inexistente.txt"));
+     }
++
++    @Test
++    void archivoTruncadoInformaErrorDeLectura() throws java.io.IOException {
++        java.nio.file.Path temp = java.nio.file.Files.createTempFile("top-incompleta-", ".txt");
++        try {
++            java.nio.file.Files.writeString(temp, "4 3 20 1\n0 200\n");
++            UncheckedIOException error = assertThrows(UncheckedIOException.class,
++                    () -> TOPTWReader.readProblem(temp.toString()));
++            assertTrue(error.getCause().getMessage().contains("nodo 0"));
++        } finally {
++            java.nio.file.Files.deleteIfExists(temp);
++        }
++    }
++
++    @Test
++    void cabeceraIncompletaInformaErrorDeFormato() throws java.io.IOException {
++        java.nio.file.Path temp = java.nio.file.Files.createTempFile("top-cabecera-", ".txt");
++        try {
++            java.nio.file.Files.writeString(temp, "4 3\n");
++            IllegalArgumentException error = assertThrows(IllegalArgumentException.class,
++                    () -> TOPTWReader.readProblem(temp.toString()));
++            assertTrue(error.getMessage().contains("Cabecera"));
++        } finally {
++            java.nio.file.Files.deleteIfExists(temp);
++        }
++    }
+ }
+
+
+$ git switch main
+Switched to branch 'main'
+
+
+$ git merge --no-ff hotfix/correccion-sonarqube -m Merge hotfix de lectura en main
+Merge made by the 'ort' strategy.
+ src/main/java/top/TOPTWReader.java     | 70 +++++++++++++++++++++-------------
+ src/test/java/top/TOPTWReaderTest.java | 26 +++++++++++++
+ 2 files changed, 70 insertions(+), 26 deletions(-)
+
+
+$ git switch feature/nueva-funcionalidad
+Switched to branch 'feature/nueva-funcionalidad'
+
+
+$ git merge --no-ff main -m Actualiza feature con main y hotfix
+Merge made by the 'ort' strategy.
+ src/main/java/top/TOPTWReader.java     | 70 +++++++++++++++++++++-------------
+ src/test/java/top/TOPTWReaderTest.java | 26 +++++++++++++
+ 2 files changed, 70 insertions(+), 26 deletions(-)
+
+
+$ git switch main
+Switched to branch 'main'
+
+
+$ git merge --no-ff feature/nueva-funcionalidad -m Merge de la funcionalidad de resumen en main
+Merge made by the 'ort' strategy.
+ src/main/java/top/TOPTWInstanceSummary.java     | 21 +++++++++++++++++++++
+ src/main/java/top/mainTOPTW.java                |  8 ++++++++
+ src/test/java/top/TOPTWInstanceSummaryTest.java | 17 +++++++++++++++++
+ 3 files changed, 46 insertions(+)
+ create mode 100644 src/main/java/top/TOPTWInstanceSummary.java
+ create mode 100644 src/test/java/top/TOPTWInstanceSummaryTest.java
+
+
+$ git branch -d feature/nueva-funcionalidad
+Deleted branch feature/nueva-funcionalidad (was d82549e).
+
+
+$ git branch -d hotfix/correccion-sonarqube
+Deleted branch hotfix/correccion-sonarqube (was 8640099).
+
+
+$ git switch -c test/conflicto
+Switched to a new branch 'test/conflicto'
+
+
+$ git switch main
+Switched to branch 'main'
+
+
+$ git add README.md
+
+
+$ git commit -m Docs: actualiza encabezado de README en main
+[main 444751e] Docs: actualiza encabezado de README en main
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+$ git switch test/conflicto
+Switched to branch 'test/conflicto'
+
+
+$ git add README.md
+
+
+$ git commit -m Test: modifica encabezado README en rama de conflicto
+[test/conflicto b865f5f] Test: modifica encabezado README en rama de conflicto
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+$ git merge --no-ff main
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+
+$ git add README.md
+
+
+$ git commit -m Resolve: unifica el encabezado README tras conflicto
+[test/conflicto 51c0e45] Resolve: unifica el encabezado README tras conflicto
+
+
+$ git switch main
+Switched to branch 'main'
+
+
+$ git merge --no-ff test/conflicto -m Merge de resolución del conflicto en main
+Merge made by the 'ort' strategy.
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+$ git add README.md pom.xml docs/practica4-control-versiones.md
+
+
+$ git commit -m Release: documenta versión 1.1 de RTVRPTW
+[main 7089d6a] Release: documenta versión 1.1 de RTVRPTW
+ 3 files changed, 22 insertions(+), 1 deletion(-)
+ create mode 100644 docs/practica4-control-versiones.md
+
+
+$ git status --short
+
+
+$ git tag -a v1.1 -m RTVRPTW v1.1: resumen, hotfix y prácticas de integración
+
+
+$ git branch -v
+* main           7089d6a Release: documenta versión 1.1 de RTVRPTW
+  test/conflicto 51c0e45 Resolve: unifica el encabezado README tras conflicto
+
+
+$ git show --no-patch v1.1
+tag v1.1
+Tagger: Práctica 4 — demostración local <practica4-demo@localhost>
+Date:   Fri Nov 13 10:48:42 2026 +0000
+
+RTVRPTW v1.1: resumen, hotfix y prácticas de integración
+
+commit 7089d6a5a297d6bddb8fee140595980718256bda
+Author: Práctica 4 — demostración local <practica4-demo@localhost>
+Date:   Fri Nov 13 10:48:42 2026 +0000
+
+    Release: documenta versión 1.1 de RTVRPTW
+
+
+$ git log --graph --all --oneline --decorate -18
+* 7089d6a (HEAD -> main, tag: v1.1) Release: documenta versión 1.1 de RTVRPTW
+*   8c732e3 Merge de resolución del conflicto en main
+|\  
+| *   51c0e45 (test/conflicto) Resolve: unifica el encabezado README tras conflicto
+| |\  
+| |/  
+|/|   
+* | 444751e Docs: actualiza encabezado de README en main
+| * b865f5f Test: modifica encabezado README en rama de conflicto
+|/  
+*   5b4a47a Merge de la funcionalidad de resumen en main
+|\  
+| *   d82549e Actualiza feature con main y hotfix
+| |\  
+| |/  
+|/|   
+* |   f9c06c9 Merge hotfix de lectura en main
+|\ \  
+| * | 8640099 Fix: validar ficheros TOPTW incompletos o mal formados
+|/ /  
+| * a91198a Feat: mostrar resumen de instancia sin ejecutar GRASP
+|/  
+* 028e8b5 Base: proyecto RTVRPTW tras la Práctica 3
+
+
+$ git status --porcelain
+
+
+
+===== ESTADO FINAL TRAS REVISIÓN =====
+
+* 788542b (HEAD -> main, tag: v1.1) Release: documenta versión 1.1 de RTVRPTW
+*   8c732e3 Merge de resolución del conflicto en main
+|\  
+| *   51c0e45 (test/conflicto) Resolve: unifica el encabezado README tras conflicto
+| |\  
+| |/  
+|/|   
+* | 444751e Docs: actualiza encabezado de README en main
+| * b865f5f Test: modifica encabezado README en rama de conflicto
+|/  
+*   5b4a47a Merge de la funcionalidad de resumen en main
+|\  
+| *   d82549e Actualiza feature con main y hotfix
+| |\  
+| |/  
+|/|   
+* |   f9c06c9 Merge hotfix de lectura en main
+|\ \  
+| * | 8640099 Fix: validar ficheros TOPTW incompletos o mal formados
+|/ /  
+| * a91198a Feat: mostrar resumen de instancia sin ejecutar GRASP
+|/  
+* 028e8b5 Base: proyecto RTVRPTW tras la Práctica 3
+
+tag v1.1
+Tagger: Práctica 4 — demostración local <practica4-demo@localhost>
+Date:   Fri Nov 13 10:54:09 2026 +0000
+
+RTVRPTW v1.1: resumen, hotfix y prácticas de integración
+
+commit 788542bf42a78c31d6868243f213a47bbac44566
+Author: Práctica 4 — demostración local <practica4-demo@localhost>
+Date:   Fri Nov 13 10:48:42 2026 +0000
+
+    Release: documenta versión 1.1 de RTVRPTW
+

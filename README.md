@@ -1,4 +1,4 @@
-# RTVRPTW - pruebas de integración
+# RTVRPTW - versión 1.1 (integración verificada)
 
 Proyecto `ExpositoTOP` adaptado a Maven, con pruebas JUnit, configuración de SonarQube, Doxygen/Graphviz y portal MkDocs Material.
 

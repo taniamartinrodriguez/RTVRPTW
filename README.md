@@ -1,4 +1,4 @@
-# RTVRPTW — Práctica 3
+# RTVRPTW - versión estable v1.1
 
 Proyecto `ExpositoTOP` adaptado a Maven, con pruebas JUnit, configuración de SonarQube, Doxygen/Graphviz y portal MkDocs Material.
 

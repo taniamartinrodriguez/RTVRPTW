@@ -6,15 +6,15 @@ import java.util.Comparator;
 import java.util.Random;
 
 /**
- * \brief Construcción heurística de rutas mediante GRASP.
- *
- * Genera soluciones factibles con una lista restringida de candidatos y selección aleatoria.
+ * @brief Heurística de construcción aleatorizada GRASP.
+ * @details Clase del proyecto RTVRPTW. Consulte la documentación del portal para su contexto.
  */
 public class TOPTWGRASP {
- public static final double NO_EVALUATED = -1.0;
+ public static double NO_EVALUATED = -1.0;
     
     private TOPTWSolution solution;
     private int solutionTime;
+    private final Random random = new Random();
 
     public TOPTWGRASP(TOPTWSolution sol){
         this.solution = sol;
@@ -43,13 +43,7 @@ public class TOPTWGRASP {
         return Solution;
     end Greedy Randomized Construction.*/
     
-    /**
-     * \brief Ejecuta el procedimiento GRASP y muestra el resultado medio y el mejor.
-     */
     public void GRASP(int maxIterations, int maxSizeRCL) {
-        if (maxIterations <= 0 || maxSizeRCL <= 0) {
-            throw new IllegalArgumentException("Las iteraciones y el tamaño de RCL deben ser positivos");
-        }
         double averageFitness = 0.0;
         double bestSolution = 0.0;
         for(int i = 0; i < maxIterations; i++) {
@@ -80,13 +74,9 @@ public class TOPTWGRASP {
     
     public int aleatorySelectionRCL(int maxTRCL) {
        if (maxTRCL <= 0) {
-           throw new IllegalArgumentException("La RCL no puede estar vacía");
+           throw new IllegalArgumentException("La lista de candidatos debe tener elementos");
        }
-       Random r = new Random();
-       int low = 0;
-       int high = maxTRCL;
-       int posSelected = r.nextInt(high-low) + low;
-       return posSelected;
+       return random.nextInt(maxTRCL);
     }
     
     public int fuzzySelectionBestFDRCL(ArrayList< double[] > rcl) {
@@ -127,10 +117,6 @@ public class TOPTWGRASP {
         return posSelected;
     }
 
-    /**
-     * \brief Construye una solución usando una lista restringida de candidatos.
-     * @param maxSizeRCL tamaño máximo de la lista de candidatos
-     */
     public void computeGreedySolution(int maxSizeRCL) {
         // inicialización
         this.solution.initSolution();
@@ -212,9 +198,6 @@ public class TOPTWGRASP {
         
     }
     
-    /**
-     * \brief Inserta el candidato seleccionado en la ruta y actualiza tiempos de salida.
-     */
     public void updateSolution(double[] candidateSelected, ArrayList< ArrayList< Double > > departureTimes) {
         // Inserción del cliente en la ruta  return: cliente, ruta, predecesor, coste
         this.solution.setPredecessor((int)candidateSelected[0], (int)candidateSelected[2]);
@@ -246,10 +229,6 @@ public class TOPTWGRASP {
     }
 
     //return: cliente, ruta, predecesor, coste tiempo, score
-    /**
-     * \brief Evalúa candidatos de visita y posiciones de inserción.
-     * @return lista de candidatos con sus costes incrementales
-     */
     public ArrayList< double[] > comprehensiveEvaluation(ArrayList<Integer> customers, ArrayList< ArrayList< Double > > departureTimes) {
         ArrayList< double[] > candidatesList = new ArrayList< double[] >();
         double[] infoCandidate = new double[5];

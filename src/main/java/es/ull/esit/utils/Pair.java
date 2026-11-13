@@ -1,11 +1,6 @@
 package es.ull.esit.utils;
 import java.util.Objects;
 
-/**
- * \brief Par genérico de valores.
- *
- * Contiene dos valores y define igualdad y hashCode basados en ambos componentes.
- */
 public class Pair<F, S> {
     public final F first;
     public final S second;
@@ -29,10 +24,6 @@ public class Pair<F, S> {
         return (first == null ? 0 : first.hashCode()) ^ (second == null ? 0 : second.hashCode());
     }
 
-    /**
-     * \brief Construye un par de elementos genéricos.
-     * @return nuevo par con los valores suministrados
-     */
     public static <A, B> Pair <A, B> create(A a, B b) {
         return new Pair<A, B>(a, b);
     }

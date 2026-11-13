@@ -5,9 +5,8 @@ import java.util.Arrays;
 import es.ull.esit.utilities.ExpositoUtilities;
 
 /**
- * \brief Representación de una solución de rutas TOPTW.
- *
- * Registra predecesores, sucesores, vehículos disponibles y valor de la función objetivo.
+ * @brief Representación y evaluación de una solución de rutas.
+ * @details Clase del proyecto RTVRPTW. Consulte la documentación del portal para su contexto.
  */
 public class TOPTWSolution {
     public static final int NO_INITIALIZED = -1;
@@ -36,9 +35,6 @@ public class TOPTWSolution {
         this.objectiveFunctionValue = TOPTWEvaluator.NO_EVALUATED;
     }
     
-    /**
-     * \brief Inicializa la solución vacía y la ruta correspondiente al depósito.
-     */
     public void initSolution() {
         this.predecessors = new int[this.problem.getPOIs()+this.problem.getVehicles()];
         this.successors = new int[this.problem.getPOIs()+this.problem.getVehicles()];
@@ -61,12 +57,13 @@ public class TOPTWSolution {
         return false;
     }
     
-    /**
-     * \brief Comprueba si dos soluciones poseen la misma secuencia de predecesores.
-     * No reemplaza Object.equals, ya que solo compara esta parte de la solución.
-     */
-    public boolean hasSamePredecessors(TOPTWSolution otherSolution) {
-        return otherSolution != null && Arrays.equals(this.predecessors, otherSolution.predecessors);
+    public boolean equals(TOPTWSolution otherSolution) {
+        for (int i = 0; i < this.predecessors.length; i++) {
+            if (this.predecessors[i] != otherSolution.predecessors[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public int getAvailableVehicles() {
@@ -137,7 +134,7 @@ public class TOPTWSolution {
         this.successors[customer] = succesor;
     }
 
-    public void setWaitingTime(int customer, double waitingTime) {
+    public void setWaitingTime(int customer, int waitingTime) {
         this.waitingTime[customer] = waitingTime;
     }
     
@@ -205,10 +202,6 @@ public class TOPTWSolution {
         return textSolution+text;
     }
     
-    /**
-     * \brief Calcula la suma de puntuaciones de los puntos visitados en las rutas.
-     * @return valor objetivo de la solución
-     */
     public double evaluateFitness() {
         double objectiveFunction = 0.0;
         double objectiveFunctionPerRoute = 0.0;
@@ -226,10 +219,6 @@ public class TOPTWSolution {
         return objectiveFunction;
     }
     
-    /**
-     * \brief Añade una nueva ruta si existen vehículos disponibles.
-     * @return índice del nuevo depósito virtual
-     */
     public int addRoute() {
         int depot = this.problem.getPOIs();
         depot++;

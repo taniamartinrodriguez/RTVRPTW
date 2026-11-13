@@ -1,31 +1,14 @@
-site_name: RTVRPTW | Documentación técnica
-site_description: Práctica 3 - Laboratorio de Desarrollo y Herramientas
-site_author: Proyecto académico ULL
+site_name: RTVRPTW | Portal técnico
+site_description: Documentación del proyecto y de la práctica 3
+site_url: https://example.invalid/rtvrptw/
 theme:
   name: material
   language: es
-  features:
-    - navigation.sections
-    - content.code.copy
-plugins:
-  - search:
-      lang: es
-  - mkdoxy:
-      projects:
-        rtvrptw:
-          src-dirs: src/main/java
-          full-doc: true
-          doxy-cfg-file: Doxyfile
-          doxy-cfg:
-            FILE_PATTERNS: "*.java"
-            RECURSIVE: YES
-            OPTIMIZE_OUTPUT_JAVA: YES
-            JAVADOC_AUTOBRIEF: YES
-            HAVE_DOT: YES
 nav:
   - Inicio: index.md
-  - Guía de uso: guia-uso.md
+  - Instalación y uso: uso.md
   - Arquitectura: arquitectura.md
-  - Calidad del código: calidad.md
+  - Maven: maven.md
+  - Calidad y SonarQube: calidad.md
   - Decisiones técnicas: decisiones.md
-  - Referencia de clases: rtvrptw/annotated.md
+  - API (Doxygen): api.md

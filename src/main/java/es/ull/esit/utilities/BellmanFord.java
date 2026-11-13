@@ -2,11 +2,6 @@ package es.ull.esit.utilities;
 
 import java.util.ArrayList;
 
-/**
- * \brief Implementación de apoyo del algoritmo Bellman-Ford.
- *
- * Maneja matrices de distancias y caminos de un grafo para su utilidad en el proyecto.
- */
 public class BellmanFord {
 
     /**

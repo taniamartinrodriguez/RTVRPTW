@@ -14,11 +14,6 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * \brief Utilidades compartidas de formato, matrices y grafos.
- *
- * Incluye presentación tabular, lectura y escritura de archivos y operaciones auxiliares.
- */
 public class ExpositoUtilities {
 
     public static final int DEFAULT_COLUMN_WIDTH = 10;
@@ -35,14 +30,21 @@ public class ExpositoUtilities {
     }
 
     public static void printFile(String file) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            String line;
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String line = "";
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-        } catch (IOException ex) {
-            Logger.getLogger(ExpositoUtilities.class.getName())
-                    .log(Level.SEVERE, "No se pudo leer el archivo: " + file, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(ExpositoUtilities.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ExpositoUtilities.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
@@ -77,9 +79,10 @@ public class ExpositoUtilities {
     }
 
     public static void writeTextToFile(String file, String text) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write(text);
-        }
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        writer.write(text);
+        writer.flush();
+        writer.close();
     }
 
     public static String getFormat(String string) {

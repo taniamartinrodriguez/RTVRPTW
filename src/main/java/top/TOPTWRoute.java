@@ -1,9 +1,8 @@
 package top;
 
 /**
- * \brief Datos de enlace de una ruta.
- *
- * Almacena identificador, predecesor y sucesor de un elemento de ruta.
+ * @brief Información de enlaces y rutas.
+ * @details Clase del proyecto RTVRPTW. Consulte la documentación del portal para su contexto.
  */
 public class TOPTWRoute {
     int predecessor;

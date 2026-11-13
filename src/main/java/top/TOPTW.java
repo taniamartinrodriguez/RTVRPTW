@@ -6,9 +6,8 @@ import java.util.Arrays;
 import es.ull.esit.utilities.ExpositoUtilities;
 
 /**
- * \brief Modelo de una instancia TOPTW.
- *
- * Almacena nodos, coordenadas, ventanas temporales, puntuaciones, vehículos y matriz de distancias.
+ * @brief Modelo del problema de rutas turísticas con ventanas temporales.
+ * @details Clase del proyecto RTVRPTW. Consulte la documentación del portal para su contexto.
  */
 public class TOPTW {
     private int nodes;
@@ -24,9 +23,6 @@ public class TOPTW {
     private double maxRoutes;
     private double[][] distanceMatrix;
 
-    /**
-     * \brief Crea una instancia con los puntos de interés y vehículos indicados.
-     */
     public TOPTW(int nodes, int routes) {
         this.nodes = nodes;
         this.depots = 0;
@@ -82,9 +78,6 @@ public class TOPTW {
     }
 
     
-    /**
-     * \brief Calcula la matriz de distancias euclidianas entre todos los puntos.
-     */
     public void calculateDistanceMatrix() {
         for (int i = 0; i < this.nodes + 1; i++) {
             for (int j = 0; j < this.nodes + 1; j++) {
@@ -120,12 +113,6 @@ public class TOPTW {
         return this.nodes;
     }
 
-    /**
-     * \brief Consulta la distancia entre dos nodos, tratando los depósitos virtuales como el depósito original.
-     * @param i nodo de origen
-     * @param j nodo de destino
-     * @return distancia euclidiana almacenada
-     */
     public double getDistance(int i, int j) {
         if(this.isDepot(i)) { i=0; }
         if(this.isDepot(j)) { j=0; }

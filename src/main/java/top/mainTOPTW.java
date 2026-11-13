@@ -1,35 +1,13 @@
 package top;
 
 /**
- * \brief Punto de entrada del recomendador turístico.
- *
- * Sin argumentos conserva el procesamiento original por lotes. Con argumentos procesa una sola instancia de manera rápida.
+ * @brief Punto de entrada para ejecutar las instancias de ejemplo.
+ * @details Clase del proyecto RTVRPTW. Consulte la documentación del portal para su contexto.
  */
 public class mainTOPTW {
 
-    /**
-     * \brief Inicia el algoritmo para una instancia concreta o para todas las originales.
-     */
     public static void main(String[] args) {
-        if (args.length > 0 && "--resumen".equals(args[0])) {
-            if (args.length != 2) {
-                throw new IllegalArgumentException("Uso: --resumen nombre-instancia.txt");
-            }
-            TOPTW problem = TOPTWReader.readProblem("Instances/TOPTW/" + args[1]);
-            System.out.print(TOPTWInstanceSummary.summarize(problem));
-            return;
-        }
-        if (args.length > 0) {
-            String instance = args[0];
-            int iterations = args.length > 1 ? Integer.parseInt(args[1]) : 5;
-            int rcl = args.length > 2 ? Integer.parseInt(args[2]) : 3;
-            TOPTW problem = TOPTWReader.readProblem("Instances/TOPTW/" + instance);
-            TOPTWGRASP grasp = new TOPTWGRASP(new TOPTWSolution(problem));
-            System.out.println(" --> Instance: " + instance);
-            grasp.GRASP(iterations, rcl);
-            return;
-        }
-
+        
         String[] instances = new String[29];
         
         instances[0] = "c101.txt"; instances[3] = "c104.txt"; instances[6] = "c107.txt";

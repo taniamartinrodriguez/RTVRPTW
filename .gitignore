@@ -1,12 +1,8 @@
-# Salidas de Maven, IDE y Doxygen
 /target/
+/build/
 /site/
+/docs/api-doxygen/
+/.scannerwork/
 /.idea/
 *.iml
-/.classpath
-/.project
-/.settings/
-/nbproject/
-.pytest_cache/
-__pycache__/
 .DS_Store

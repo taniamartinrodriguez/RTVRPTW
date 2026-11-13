@@ -1,18 +1,11 @@
 package es.ull.esit.utilities;
 
-import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.LinkedHashSet;
-import java.util.NoSuchElementException;
+import java.util.TreeSet;
 
 // Sirve para calcular todos los subconjuntos de un conjunto dado
-/**
- * \brief Iterador de los subconjuntos de un conjunto.
- *
- * Genera de forma perezosa los subconjuntos mediante un BitSet sin exigir elementos comparables.
- */
 public class PowerSet<E> implements Iterator<Set<E>>, Iterable<Set<E>> {
 
     private E[] arr = null;
@@ -30,14 +23,8 @@ public class PowerSet<E> implements Iterator<Set<E>>, Iterable<Set<E>> {
     }
 
     @Override
-    /**
-     * \brief Devuelve el siguiente subconjunto o lanza NoSuchElementException si se agotaron.
-     */
     public Set<E> next() {
-        if (!hasNext()) {
-            throw new NoSuchElementException("No quedan subconjuntos");
-        }
-        Set<E> returnSet = new LinkedHashSet<>();
+        Set<E> returnSet = new TreeSet<>();
         for (int i = 0; i < this.arr.length; i++) {
             if (this.bset.get(i)) {
                 returnSet.add(this.arr[i]);
@@ -61,7 +48,6 @@ public class PowerSet<E> implements Iterator<Set<E>>, Iterable<Set<E>> {
 
     @Override
     public Iterator<Set<E>> iterator() {
-        // Cada recorrido necesita su propio BitSet, independiente de otros recorridos.
-        return new PowerSet<>(new LinkedHashSet<>(Arrays.asList(arr)));
+        return this;
     }
 }

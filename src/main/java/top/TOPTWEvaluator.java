@@ -1,19 +1,38 @@
 package top;
 
 /**
- * \brief Evalúa una solución del problema TOPTW.
- *
- * El valor objetivo coincide con la suma de las puntuaciones de las visitas
- * realizadas, calculada por {@link TOPTWSolution#evaluateFitness()}.
+ * @brief Componente de evaluación original, actualmente sin implementación activa.
+ * @details Clase del proyecto RTVRPTW. Consulte la documentación del portal para su contexto.
  */
 public class TOPTWEvaluator {
-    public static final double NO_EVALUATED = -1.0;
+    public static double NO_EVALUATED = -1.0;
 
-    /**
-     * \brief Actualiza el valor objetivo de una solución.
-     * @param solution solución que se desea evaluar
-     */
     public void evaluate(TOPTWSolution solution) {
-        solution.setObjectiveFunctionValue(solution.evaluateFitness());
+        /*CumulativeCVRP problem = solution.getProblem();
+        double objectiveFunctionValue = 0.0;
+        for (int i = 0; i < solution.getIndexDepot().size(); i++) {
+            double cumulative = 0;
+            int depot = solution.getAnIndexDepot(i);
+            int actual = depot;
+            actual = solution.getSuccessor(actual);
+            cumulative += problem.getDistanceMatrix(0, actual);
+            objectiveFunctionValue += problem.getDistanceMatrix(0, actual);
+            System.out.println("Desde " + 0 + " a " + actual + " = " + cumulative);
+            while (actual != depot) {
+                int ant = actual;
+                actual = solution.getSuccessor(actual);
+                if (actual != depot) {
+                    cumulative += problem.getDistanceMatrix(ant, actual);
+                    objectiveFunctionValue += cumulative;
+                    System.out.println("Desde " + ant + " a " + actual + " = " + cumulative);
+                } else {
+                    cumulative += problem.getDistanceMatrix(ant, 0);
+                    objectiveFunctionValue += cumulative;
+                    System.out.println("Desde " + ant + " a " + 0 + " = " + cumulative);
+                }
+            }
+            System.out.println("");
+        }
+        solution.setObjectiveFunctionValue(objectiveFunctionValue);*/
     }
 }
